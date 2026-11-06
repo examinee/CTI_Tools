@@ -1,6 +1,6 @@
-# Remcos C2 Tracker
+# Malware family C2 Tracker
 
-Remcos RAT의 C2 인프라를 공개 위협 피드와 MISP를 활용해 주간 단위로 수집·enrichment·상관분석하는 자동화 파이프라인.
+Commodity Malware의 C2 인프라를 공개 위협 피드와 MISP를 활용해 주간 단위로 수집·enrichment·상관분석하는 자동화 파이프라인.
 
 ## 개요
 
@@ -36,21 +36,22 @@ claude.md                   →  (groups.json을 LLM에 입력해 피벗 대상 
 
 ```bash
 # 1. ThreatFox에서 수집 (최근 7일)
-python collect_by_threat_fox.py
+python collect_by_threat_fox.py -f Family
 
 # 2. MalwareBazaar에서 수집 (최근 7일)
-python collect_by_malware_bazzar.py
+python collect_by_malware_bazzar.py -f Family
 
 # 3. 수집한 C2 도메인 DNS resolve
 python domain_to_ip.py
 
 # 4. 상관분석 그룹 생성
-python misp_correlation_api.py --week 2026-W45
+python misp_correlation_api.py
 ```
 
 ## 출력
 
-### `<week>_groups.json`
+### `<year>-W<week>__groups.json`
+예시: `2026-W45__groups.json.json`
 
 각 그룹에 포함되는 필드:
 

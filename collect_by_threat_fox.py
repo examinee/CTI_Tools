@@ -7,6 +7,13 @@ from pathlib import Path
 
 
 def main():
+    ap = argparse.ArgumentParser(description="주간 악성코드 수집 후 misp적재 by Malware Bazaar")
+    ap.add_argument("-f", "--family", type=str, required=True,help="수집할 악성코드 family")
+    ap.add_argument("--outdir", type=Path,default=None, help="결과 저장 디렉토리")
+    args = ap.parse_args()
+    family = args.family
+    if not family:
+        ap.error("추적할 악성코드 패밀리를 입력하십시오.")  
     with open("config.json", "r") as f:
         config = json.load(f)
     API_KEY = config.get("API_KEY")
