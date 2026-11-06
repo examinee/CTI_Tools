@@ -1,0 +1,21 @@
+# 1. 민감 정보 및 설정 파일
+.env
+config.json
+*.key
+
+# 2. 다운로드한 악성코드 샘플 및 결과 폴더
+Mal_sample/
+*.zip
+*.bin
+
+# 3. 파이썬 실행 관련 임시 파일 및 가상환경
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# 4. OS/IDE 생성 임시 파일
+.DS_Store
+.vscode/
+.idea/

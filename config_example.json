@@ -1,0 +1,8 @@
+{
+    "API_KEY": "your_api_key_here",
+    "misp_url": "misp_instance_url_here",
+    "misp_key": "your_misp_key_here",
+    "outdir": "output_directory_path_here"
+
+
+}
